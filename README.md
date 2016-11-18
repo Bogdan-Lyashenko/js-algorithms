@@ -8,3 +8,5 @@ Algorithms list:
 - Queue
 - Bubble sort
 - Binary search
+- Breadth first search
+- Small tasks
