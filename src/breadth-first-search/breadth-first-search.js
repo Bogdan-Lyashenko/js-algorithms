@@ -2,8 +2,8 @@ export default class BreadthFirstSearch {
 
     /**
      *
-     * @param startNode
-     * @param goalNode
+     * @param {Object} startNode
+     * @param {Object} goalNode
      * @returns {Object|Null}
      */
     static search (startNode, goalNode) {
@@ -34,22 +34,14 @@ export default class BreadthFirstSearch {
 
     /**
      *
-     * @param {Object} root
+     * @param {Object|Array} node
      */
-    static resetVisitedStatus(root) {
-        let node,
-            queue = [root];
+    static resetVisitedStatus(node) {
+        node.setVisited(false);
 
-        while (queue.length) {
-            node = queue.pop();
-            node.setVisited(false);
-
-            node.getChildren().forEach((child)=> {
-                if (child.getVisited()) {
-                    queue.push(child);
-                }
-            });
-        }
+        node.getChildren().forEach((child)=> {
+            BreadthFirstSearch.resetVisitedStatus(child);
+        });
     }
 }
 
