@@ -1,3 +1,5 @@
+import Queue from '../queue/queue.js';
+
 export default class BreadthFirstSearch {
 
     /**
@@ -8,12 +10,14 @@ export default class BreadthFirstSearch {
      */
     static search (startNode, goalNode) {
         let node,
-            queue = [startNode];
+            queue = new Queue();
 
         BreadthFirstSearch.resetVisitedStatus(startNode);
 
+        queue.push(startNode);
         startNode.setVisited(true);
-        while (queue.length) {
+
+        while (!queue.isEmpty()) {
             node = queue.pop();
 
             if (node.isEqualToNode(goalNode)) {

@@ -25,6 +25,14 @@ export default class Queue {
 
         return item;
     }
+
+    /**
+     *
+     * @returns {boolean}
+     */
+    isEmpty() {
+        return this.list.length === 0;
+    }
 }
 
 
