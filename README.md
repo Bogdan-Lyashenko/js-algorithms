@@ -9,4 +9,5 @@ Algorithms list:
 - Bubble sort
 - Binary search
 - Breadth first search
+- Depth first search
 - Small tasks
