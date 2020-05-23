@@ -1,6 +1,8 @@
 # js-algorithms
 Computer science
 
+> If you like this project, follow me on Twitter [@bliashenko](https://twitter.com/bliashenko) to hear about things I am building.
+
 Algorithms list:
 - Hash table
 - Linked list
