@@ -1,54 +1,54 @@
 import Hash from './hash.js';
 
 export default class OpenAddressingCollisionResolution {
-    constructor() {
-        this.hash = new Hash();
+  constructor() {
+    this.hash = new Hash();
+  }
+
+  /**
+   *
+   * @param {String} key
+   * @param {Array} value
+   * @param {Array} storage
+   */
+  insertValue(key, value, storage) {
+    let index = this.hash.getIntHashFromString(key);
+
+    if (!storage[index]) {
+      storage[index] = value;
+      return;
     }
 
-    /**
-     *
-     * @param {String} key
-     * @param {Array} value
-     * @param {Array} storage
-     */
-    insertValue(key, value, storage) {
-        let index = this.hash.getIntHashFromString(key);
-
-        if (!storage[index]) {
-            storage[index] = value;
-            return;
-        }
-
-        while (storage[index]) {
-            index++;
-        }
-
-        storage[index] = value;
+    while (storage[index]) {
+      index++;
     }
 
-    /**
-     *
-     * @param {String} key
-     * @param {Array} storage
-     * @returns {Array}
-     */
-    getValue(key, storage) {
-        let index = this.hash.getIntHashFromString(key),
-            value = storage[index];
+    storage[index] = value;
+  }
 
-        if (value[0] === key) {
-            return value;
-        }
+  /**
+   *
+   * @param {String} key
+   * @param {Array} storage
+   * @returns {Array}
+   */
+  getValue(key, storage) {
+    let index = this.hash.getIntHashFromString(key),
+      value = storage[index];
 
-        while (value) {
-            index++;
-            value = storage[index];
-
-            if (value[0] === key) {
-                return value;
-            }
-        }
-
-        return null;
+    if (value[0] === key) {
+      return value;
     }
+
+    while (value) {
+      index++;
+      value = storage[index];
+
+      if (value[0] === key) {
+        return value;
+      }
+    }
+
+    return null;
+  }
 }

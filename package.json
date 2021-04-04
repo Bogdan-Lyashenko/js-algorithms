@@ -8,10 +8,13 @@
     "webpack": "^1.12.8",
     "webpack-dev-server": "^1.12.1"
   },
-  "devDependencies": {},
-  "scripts": {
-    "start": "webpack-dev-server"
+  "devDependencies": {
+    "prettier": "^1.14.0"
   },
-  "author": "Bohdan Liashenko",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "pretty": "prettier  --write \"./src/**/*.js\""
+  },
+  "author": "ValueItem Liashenko",
   "license": "MIT"
 }
